@@ -4,32 +4,36 @@ import { Dimensions } from "react-native";
 import AutoHeightImage from "react-native-auto-height-image";
 import BottomTab from "../components/BottomTab";
 import { Ionicons } from '@expo/vector-icons';
+import { withNavigation } from 'react-navigation'
 
 const defaultImage = require('../../assets/default-fallback-image.png');
 const dummyUser = require('../testData/dummyUser');
 const fullWidth = Dimensions.get('window').width;
 
-const BackIcon = () => {
+const BackIcon = withNavigation((props) => {
+  const goBack = () => {
+    props.navigation.goBack();
+  };
   return (
-    <TouchableOpacity style={ styles.button }>
+    <TouchableOpacity style={ styles.button } onPress={goBack}>
       <Ionicons name='ios-arrow-back' style={ styles.icon }/>
     </TouchableOpacity>
   )
-};
+});
 
 const MenuIcon = () => {
   return (
-    <TouchableOpacity style={ styles.button }>
+    <TouchableOpacity style={ styles.button } onPress={() => alert('click menu')}>
       <Ionicons name='ios-menu' style={ styles.icon }/>
     </TouchableOpacity>
   )
 };
 
 export default class Details extends Component {
-  static navigationOptions = () => {
+  static navigationOptions = ( {navigation} ) => {
     return {
-      headerRight: <MenuIcon />,
-      headerBackImage: <BackIcon />,
+      headerRight: <MenuIcon onPress={()=> alert('kkk')}/>,
+      headerLeft: <BackIcon />,
     }
   };
 

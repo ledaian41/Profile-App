@@ -9,8 +9,7 @@ const dummyUser = require('../testData/dummyUser');
 
 export default class Home extends Component {
   static navigationOptions = {
-    header: null,
-    headerBackTitle: null
+    header: null
   };
 
   render() {
