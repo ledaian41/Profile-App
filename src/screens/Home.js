@@ -8,6 +8,11 @@ import BottomTab from '../components/BottomTab';
 const dummyUser = require('../testData/dummyUser');
 
 export default class Home extends Component {
+  static navigationOptions = {
+    header: null,
+    headerBackTitle: null
+  };
+
   render() {
     return (
       <SafeAreaView style={ styles.container }>
