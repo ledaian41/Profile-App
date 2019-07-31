@@ -26,7 +26,7 @@ const MenuIcon = () => {
 };
 
 export default class Details extends Component {
-  static navigationOptions = ( {navigation} ) => {
+  static navigationOptions = () => {
     return {
       headerRight: <MenuIcon />,
       headerBackImage: <BackIcon />,
